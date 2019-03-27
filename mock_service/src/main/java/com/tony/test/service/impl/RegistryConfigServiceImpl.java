@@ -26,6 +26,11 @@ import com.tony.test.service.RegistryConfigService;
     }
 
     @Override
+    public RegistryConfig selectRegistryConfigById(int id) {
+        return registryConfigMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
     public int updateOrInsertRegistryConfig(RegistryConfig registryConfig) {
         if (registryConfig == null) {
             return 0;

@@ -26,6 +26,11 @@ import com.tony.test.service.ProtocolConfigService;
     }
 
     @Override
+    public ProtocolConfig selectProtocolConfigById(int id) {
+        return protocolConfigMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
     public int updateOrInsertProtocolConfig(ProtocolConfig protocolConfig) {
         if (protocolConfig == null) {
             return 0;

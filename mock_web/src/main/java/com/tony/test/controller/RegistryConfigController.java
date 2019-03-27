@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import com.tony.test.mock.auto.mapper.RegistryConfigMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,9 +15,11 @@ import com.tony.test.mock.po.RegistryConfig;
 import com.tony.test.page.Page;
 import com.tony.test.service.RegistryConfigService;
 
-@Controller public class RegistryConfigController extends BaseController {
+@Controller
+public class RegistryConfigController extends BaseController {
 
-    @Resource RegistryConfigService RegistryConfigServiceImpl;
+    @Resource
+    RegistryConfigService RegistryConfigServiceImpl;
 
     @ResponseBody
     @RequestMapping(value = "/selectRegistryConfig")
@@ -29,6 +32,13 @@ import com.tony.test.service.RegistryConfigService;
         ModelAndView view = new ModelAndView("jsp/selectRegistryConfig");
         view.addObject("page", page);
         return view;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/showRegistryConfig")
+    public RegistryConfig showRegistryConfig(HttpServletRequest request) throws Exception {
+        RegistryConfig registryconfig = RegistryConfigServiceImpl.selectRegistryConfigById(Integer.valueOf(request.getParameter("selectid")));
+        return registryconfig;
     }
 
     @ResponseBody

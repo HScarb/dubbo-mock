@@ -32,6 +32,13 @@ import com.tony.test.service.ProtocolConfigService;
     }
 
     @ResponseBody
+    @RequestMapping(value = "/showProtocolConfig")
+    public ProtocolConfig showProtocolConfig(HttpServletRequest arg0) throws Exception {
+        ProtocolConfig protocolConfig = ProtocolConfigServiceImpl.selectProtocolConfigById(Integer.valueOf(arg0.getParameter("selectid")));
+        return protocolConfig;
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/updateOrInsertProtocolConfig")
     public ProtocolConfig updateOrInsertProtocolConfig(HttpServletRequest arg0) throws Exception {
         ProtocolConfig ProtocolConfig = assembleRequestParamForBean(arg0, ProtocolConfig.class);

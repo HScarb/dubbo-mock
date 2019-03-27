@@ -54,7 +54,7 @@ public class DubboMockServiceTest extends TestBase {
 
     List<ServiceMethedRule> smritmes       = Lists.newArrayList();
     
-    String registryAddress = "10.100.22.8:2181";
+    String registryAddress = "127.0.0.1:2181";
 
 
     @Before
